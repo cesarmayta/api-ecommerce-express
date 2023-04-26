@@ -38,6 +38,20 @@ services:
       local_network:
         ipv4_address: 172.28.1.5
 
+  nginx:
+    container_name: api.proxy
+    build: ./nginx
+    volumes:
+      - ./app/static:/usr/src/app/static
+      - media_volume:/usr/src/app/media
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+    networks:
+      local_network:
+        ipv4_address: 172.28.1.6
+
 networks:
   local_network:
     ipam:
