@@ -37,7 +37,7 @@ services:
       - ./src/static:/usr/src/static
       - media_volume:/usr/src/media
     ports:
-      - "80:80"
+      - "8090:80"
     depends_on:
       - web
       
